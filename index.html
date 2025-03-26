@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARQUIVO PROIBIDO | Creepypastas Clássicas</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #c00;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border-left: 1px solid #300;
+            border-right: 1px solid #300;
+            min-height: 100vh;
+            background-color: #111;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Novos estilos para os jumpscares */
+        .jumpscare {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            z-index: 1000;
+            display: none;
+            pointer-events: none;
+            animation: jumpscareEffect 0.5s linear;
+        }
+        
+        @keyframes jumpscareEffect {
+            0% { transform: scale(0.8); opacity: 0; }
+            20% { transform: scale(1.1); opacity: 1; }
+            40% { transform: scale(0.9); }
+            60% { transform: scale(1.05); }
+            80% { transform: scale(0.95); }
+            100% { transform: scale(1); }
+        }
+        
+        .jumpscare-sound {
+            display: none;
+        }
+        
+        /* Restante do CSS permanece o mesmo */
+        header {
+            text-align: center;
+            border-bottom: 1px solid #300;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            color: #f00;
+            text-shadow: 0 0 5px #f00;
+            font-size: 2.5em;
+            letter-spacing: 2px;
+        }
+        
+        .creepypasta {
+            margin-bottom: 40px;
+            border-bottom: 1px dashed #300;
+            padding-bottom: 20px;
+        }
+        
+        .creepypasta h2 {
+            color: #a00;
+            cursor: pointer;
+            font-size: 1.4em;
+        }
+        
+        .content {
+            display: none;
+            padding: 15px;
+            background-color: #1a1a1a;
+            border-left: 3px solid #500;
+            margin-top: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.8em;
+            color: #500;
+            border-top: 1px solid #300;
+            padding-top: 20px;
+        }
+        
+        .warning {
+            color: #f00;
+            text-align: center;
+            font-weight: bold;
+            margin: 20px 0;
+            animation: blink 2s infinite;
+            border: 1px solid #f00;
+            padding: 10px;
+            background-color: #200;
+        }
+        
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+        
+        .year-section {
+            margin-top: 50px;
+        }
+        
+        .year-title {
+            color: #800;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 1px solid #300;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        .metadata {
+            font-size: 0.8em;
+            color: #600;
+            font-style: italic;
+            margin-top: 15px;
+            border-top: 1px dotted #300;
+            padding-top: 5px;
+        }
+        
+        #visitor-counter {
+            color: #f00;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Elementos de jumpscare (inicialmente invisíveis) -->
+    <div id="jumpscare-sonic" class="jumpscare" style="background-image: url('https://i.imgur.com/E47cuM2.jpeg');"></div>
+    <div id="jumpscare-slenderman" class="jumpscare" style="background-image: url('https://i.imgur.com/RkovFdy.jpeg');"></div>
+    <div id="jumpscare-jeff" class="jumpscare" style="background-image: url('https://i.imgur.com/TEsL967.png');"></div>
+    <div id="jumpscare-smile" class="jumpscare" style="background-image: url('https://i.imgur.com/FwgtfL6.png');"></div>
+    <div id="jumpscare-crooked" class="jumpscare" style="background-image: url('https://i.imgur.com/mMoJgyX.jpeg');"></div>
+    <div id="jumpscare-siren" class="jumpscare" style="background-image: url('https://i.imgur.com/sC14HCC.png');"></div>
+    
+    <!-- Áudio para os jumpscares -->
+    <audio id="jumpscare-sound" class="jumpscare-sound" src="sons/little_robot_sound_factory_Scream_Male_00.mp3" preload="auto"></audio>
+    <audio id="static-sound" class="jumpscare-sound" src="sons/skyclad_sound_scream_shriek_sound_design_several_overlapping_reverb_141.mp3" preload="auto"></audio>
+
+    <div class="container">
+        <!-- O resto do seu conteúdo HTML permanece igual -->
+        <header>
+            <h1>ARQUIVO PROIBIDO</h1>
+            <p>Coleção Completa de Creepypastas Clássicas</p>
+        </header>
+        
+        <div class="warning">
+            ⚠️ AVISO: Este site contém material perturbador. Não leia sozinho à noite.
+        </div>
+
+        <!-- Seção de Clássicos -->
+        <div class="year-section">
+            <h2 class="year-title">LENDAS URBANAS</h2>
+            
+            <!-- Sonic.exe -->
+            <div class="creepypasta">
+                <h2 onclick="toggleContent(this)">Sonic.exe</h2>
+                <div class="content">
+                    <p>Em 2011, um jogo modificado de Sonic começou a circular em fóruns obscuros. O jogo parecia normal no início, mas após alguns minutos, o personagem Sonic se transformava em uma criatura demoníaca com olhos completamente negros e sangue escorrendo de suas órbitas.</p>
+                    <p>Os jogadores relatavam que o jogo parecia saber coisas sobre eles, mencionando seus nomes reais e eventos de suas vidas. O pior vinha quando o jogo exibia a mensagem "YOU SHOULDN'T HAVE COME HERE" antes de travar o computador.</p>
+                    <p>Várias pessoas afirmaram ter recebido o jogo de fontes desconhecidas, sempre com um arquivo chamado "sonic.exe". Aqueles que jogaram até o final desapareciam ou eram encontrados mortos, com expressões de terror absoluto congeladas em seus rostos.</p>
+                    <p class="metadata">Primeiro relato: 2011 | Plataforma: PC | Status: Desconhecido</p>
+                </div>
+            </div>
+            
+            <!-- Slenderman -->
+            <div class="creepypasta">
+                <h2 onclick="toggleContent(this)">Slenderman</h2>
+                <div class="content">
+                    <p>Slenderman é uma entidade alta e esguia, com braços anormalmente longos e um rosto sem feições. Ele aparece em fotos e vídeos, sempre à distância no início, mas se aproximando gradualmente.</p>
+                    <p>As vítimas relatam:
+                    <br>- Perda de memória
+                    <br>- Sangramento nasal inexplicável
+                    <br>- Pesadelos recorrentes com uma figura alta
+                    <br>- Aparições em fotografias antigas onde ele não estava originalmente</p>
+                    <p>O caso mais famoso ocorreu em 2014, quando duas adolescentes esfaquearam uma amiga, alegando que Slenderman as havia ordenado a fazê-lo. Desde então, os avistamentos só aumentaram.</p>
+                    <p class="metadata">Primeiro relato: 2009 | Localização: Mundial | Vítimas: Incontáveis</p>
+                </div>
+            </div>
+            
+            <!-- Jeff The Killer -->
+            <div class="creepypasta">
+                <h2 onclick="toggleContent(this)">Jeff The Killer</h2>
+                <div class="content">
+                    <p>A história conta sobre Jeff, um adolescente que após um incidente violento, queimou seu próprio rosto e ficou obcecado em "fazer as pessoas sorrirem" - cortando os cantos de suas bocas.</p>
+                    <p>Jeff aparece para suas vítimas à noite, sussurrando "Go to sleep" antes de atacar. Sua imagem é frequentemente associada a uma fotografia perturbadora de um rosto pálido com um sorriso exagerado e olhos escuros.</p>
+                    <p>Em 2012, vários adolescentes relataram ter recebido mensagens de um perfil chamado "JeffTheKiller" contendo ameaças e sua localização exata em tempo real. A polícia nunca encontrou o responsável.</p>
+                    <p class="metadata">Primeiro relato: 2008 | Tática: Assédio noturno</p>
+                </div>
+            </div>
+            
+            <!-- Jack Risonho -->
+            <div class="creepypasta">
+                <h2 onclick="toggleContent(this)">Jack Risonho (Smile Dog)</h2>
+                <div class="content">
+                    <p>A lenda fala de uma imagem chamada "smile.jpg" que mostra um husky siberiano com um sorriso humano anormal e olhos cheios de malícia. Dizem que quem vê a imagem começa a ouvir risadas à noite e sonha com o cão.</p>
+                    <p>A única maneira de se livrar da maldição é fazer outra pessoa ver a imagem, passando a maldição adiante. Aqueles que não o fazem enlouquecem progressivamente, até que seu rosto se deforma em um sorriso permanente e não natural - exatamente como o do cão.</p>
+                    <p>Em 2010, um fórum de creepypasta realizou um experimento onde vários usuários visualizaram a imagem simultaneamente. Todos relataram os mesmos sonhos e 3 participantes desapareceram sem deixar vestígios.</p>
+                    <p class="metadata">Primeiro relato: 2008 | Tipo: Imagem amaldiçoada</p>
+                </div>
+            </div>
+            
+            <!-- Homemzinho Torto -->
+            <div class="creepypasta">
+                <h2 onclick="toggleContent(this)">Homemzinho Torto (The Crooked Man)</h2>
+                <div class="content">
+                    <p>O Homemzinho Torto é uma figura que aparece em sonhos, descrito como um homem pequeno com membros desproporcionais e articulações que se dobram de maneira não natural. Ele não fala, apenas observa e aponta.</p>
+                    <p>Aqueles que sonham com ele começam a vê-lo na vida real, sempre à distância no início. Com o tempo, ele se aproxima, até que um dia está ao lado da cama quando a pessoa acorda. Após esse encontro final, a vítima é encontrada morta, com todos os ossos do corpo quebrados em múltiplos lugares.</p>
+                    <p>Psiquiatras que estudaram os casos notaram que todas as vítimas, antes de morrerem, desenhavam a mesma figura: um homem pequeno feito completamente de linhas tortas. Algumas vítimas relatavam ouvir uma canção de ninar distorcida antes de vê-lo, com a letra:</p>
+                    <p><em>"There was a crooked man, who walked a crooked mile...<br>
+                    He found a crooked sixpence upon a crooked stile...<br>
+                    He bought a crooked cat, which caught a crooked mouse...<br>
+                    And they all lived together in a little crooked house."</em></p>
+                    <p>O fenmeno parece ser contagioso - quem pesquisa muito sobre o Homemzinho Torto começa a experimentar os mesmos sintomas. Em 2015, um grupo de pesquisa paranormal que investigava os casos desapareceu completamente, deixando para trás apenas gravações de áudio com sons de ossos quebrando.</p>
+                    <p class="metadata">Primeiro relato: 2006 | Modus Operandi: Sonhos | Vítimas confirmadas: 47</p>
+                </div>
+            </div>
+            
+            <!-- Ben Drowned -->
+            <div class="creepypasta">
+                <h2 onclick="toggleContent(this)">Ben Drowned</h2>
+                <div class="content">
+                    <p>A história começa com um cartucho de The Legend of Zelda: Majora's Mask comprado em um brechó. O jogo parece normal até que eventos estranhos começam a ocorrer:
+                    <br>- O personagem se move sozinho
+                    <br>- Textos modificados mencionam "Ben"
+                    <br>- A música fica distorcida em momentos aleatórios</p>
+                    <p>Descobre-se que o cartucho estava possuído pelo espírito de um menino chamado Ben que se afogou. O jogo age como um veículo para sua vingança, corrompendo outros jogos no mesmo console e eventualmente levando os jogadores à loucura ou morte.</p>
+                    <p>Em 2015, um YouTuber que fez uma análise do jogo desapareceu por uma semana, sendo encontrado em um estado catatônico, repetindo continuamente: "You shouldn't have done that..."</p>
+                    <p class="metadata">Primeiro relato: 2010 | Plataforma: Nintendo 64 | Status: Ativo</p>
+                </div>
+            </div>
+            
+            <!-- Siren Head -->
+            <div class="creepypasta">
+                <h2 onclick="toggleContent(this)">Siren Head</h2>
+                <div class="content">
+                    <p>Siren Head é uma criatura alta e esquelética, com aproximadamente 12 metros de altura, cuja cabeça consiste em duas sirenes de alerta de ataque aéreo. Seu corpo é composto de metal enferrujado e carne mumificada.</p>
+                    <p>A criatura emite sons de sirenes de emergência, transmissões de rádio distorcidas e até mesmo vozes humanas - todas provenientes de vítimas anteriores. Ele é frequentemente avistado em áreas florestais remotas, parado entre as árvores, confundindo-se com postes telefônicos.</p>
+                    <p>Os encontros mais perturbadores ocorrem quando Siren Head começa a transmitir mensagens pessoais destinadas especificamente ao ouvinte, incluindo informações que a criatura não poderia saber. Em 2018, três caminhantes desapareceram na floresta de Browntown após relatarem ter ouvido "a voz da mãe de um deles" chamando por ajuda.</p>
+                    <p>Curiosamente, fotos antigas mostram figuras semelhantes a Siren Head em fundos de imagens desde os anos 1960, sugerindo que a criatura existe há muito mais tempo do que se imagina.</p>
+                    <p class="metadata">Primeiro relato moderno: 2018 | Localização: Florestas da América do Norte | Altura: ~12m</p>
+                </div>
+            </div>
+            
+            <!-- Outras criaturas relacionadas -->
+            <div class="creepypasta">
+                <h2 onclick="toggleContent(this)">Entidades de Sinais de Emergência</h2>
+                <div class="content">
+                    <p>Além do Siren Head, existem relatos de outras criaturas que utilizam sinais de emergência para caçar:</p>
+                    
+                    <h3>Radio Head</h3>
+                    <p>Uma variação menor do Siren Head, com cerca de 2 metros de altura, cuja cabeça é um rádio antigo. Emite estática e fragmentos de transmissões de números (number stations). Vítimas relatam ouvir coordenadas GPS de locais onde crimes ocorreram.</p>
+                    
+                    <h3>The Broadcast</h3>
+                    <p>Não é exatamente uma criatura, mas um sinal de TV que aparece aleatoriamente em canais sem transmissão. Mostra uma figura indistinta em uma sala branca, que gradualmente se aproxima da câmera. Quem assiste por muito tempo começa a ver a figura em reflexos.</p>
+                    
+                    <h3>Air Raid Siren</h3>
+                    <p>Similar ao Siren Head, mas menor e mais numeroso. São frequentemente avistados em grupos durante tempestades, emitindo sons de sirenes mesmo quando não há sistemas de alerta na área.</p>
+                    
+                    <p class="metadata">Categoria: Entidades de Transmissão | Comportamento: Mimético</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Este arquivo contém informações classificadas. Leitura prolongada pode resultar em efeitos colaterais.</p>
+            <p>Você é o visitante número <span id="visitor-counter">118.218</span>. Não olhe para trás.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Lista de jumpscares disponíveis
+        const jumpscares = [
+            { id: 'jumpscare-sonic', sound: 'jumpscare-sound' },
+            { id: 'jumpscare-slenderman', sound: 'jumpscare-sound' },
+            { id: 'jumpscare-jeff', sound: 'jumpscare-sound' },
+            { id: 'jumpscare-smile', sound: 'jumpscare-sound' },
+            { id: 'jumpscare-crooked', sound: 'static-sound' },
+            { id: 'jumpscare-siren', sound: 'static-sound' }
+        ];
+        
+        // Função para ativar um jumpscare aleatório
+        function triggerRandomJumpscare() {
+            // Só ativa em 30% das vezes para manter a imprevisibilidade
+            if (Math.random() < 0.3) {
+                const randomJumpscare = jumpscares[Math.floor(Math.random() * jumpscares.length)];
+                const element = document.getElementById(randomJumpscare.id);
+                const sound = document.getElementById(randomJumpscare.sound);
+                
+                // Mostra o jumpscare
+                element.style.display = 'block';
+                sound.currentTime = 0;
+                sound.play();
+                
+                // Esconde após 1 segundo
+                setTimeout(() => {
+                    element.style.display = 'none';
+                }, 1000);
+            }
+        }
+        
+        // Função original para mostrar/esconder conteúdo
+        function toggleContent(element) {
+            const content = element.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+                
+                // Chance de ativar jumpscare ao abrir conteúdo
+                if (Math.random() > 0.7) {
+                    setTimeout(triggerRandomJumpscare, Math.random() * 3000 + 1000);
+                }
+                
+                // Efeito assustador aleatório
+                if (Math.random() > 0.7) {
+                    document.body.style.backgroundColor = "#100";
+                    setTimeout(() => {
+                        document.body.style.backgroundColor = "#000";
+                    }, 100);
+                }
+            }
+        }
+        
+        // Configura eventos aleatórios de jumpscare
+        function setupJumpscareEvents() {
+            // Jumpscare aleatório ao rolar a página
+            window.addEventListener('scroll', () => {
+                if (Math.random() > 0.97) {
+                    triggerRandomJumpscare();
+                }
+            });
+            
+            // Jumpscare aleatório após intervalo de tempo
+            setInterval(() => {
+                if (Math.random() > 0.95) {
+                    triggerRandomJumpscare();
+                }
+            }, 30000); // A cada 30 segundos
+            
+            // Jumpscare ao passar o mouse em certas áreas
+            const scaryElements = document.querySelectorAll('.creepypasta h2, .warning, footer');
+            scaryElements.forEach(el => {
+                el.addEventListener('mouseover', () => {
+                    if (Math.random() > 0.9) {
+                        setTimeout(triggerRandomJumpscare, Math.random() * 1000);
+                    }
+                });
+            });
+        }
+        
+        // Efeito de digitação no título
+        document.addEventListener('DOMContentLoaded', function() {
+            const titles = document.querySelectorAll('.creepypasta h2');
+            titles.forEach(title => {
+                title.addEventListener('mouseover', function() {
+                    this.style.textShadow = '0 0 10px #f00';
+                });
+                title.addEventListener('mouseout', function() {
+                    this.style.textShadow = 'none';
+                });
+            });
+            
+            // Efeito de glitch aleatório
+            setInterval(() => {
+                if (Math.random() > 0.97) {
+                    document.body.style.color = '#0f0';
+                    setTimeout(() => {
+                        document.body.style.color = '#c00';
+                    }, 50);
+                }
+            }, 5000);
+            
+            // Contador de visitantes
+            let counter = 118200;
+            const counterElement = document.getElementById('visitor-counter');
+            setInterval(() => {
+                counter++;
+                counterElement.textContent = counter.toLocaleString();
+                if (counter === 118218) {
+                    counterElement.style.color = '#f00';
+                    counterElement.style.fontWeight = 'bold';
+                    // Jumpscare especial no visitante 118218
+                    setTimeout(() => {
+                        document.getElementById('jumpscare-slenderman').style.display = 'block';
+                        document.getElementById('jumpscare-sound').play();
+                        setTimeout(() => {
+                            document.getElementById('jumpscare-slenderman').style.display = 'none';
+                        }, 1500);
+                    }, 2000);
+                }
+            }, 100);
+            
+            // Configura os jumpscares
+            setupJumpscareEvents();
+        });
+    </script>
+</body>
+</html>
